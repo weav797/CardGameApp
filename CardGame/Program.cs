@@ -15,7 +15,22 @@ namespace CardGame
 
     public abstract class Deck
     {
-        
+        public void CreateDeck()
+        {
+
+        }
+
+        public virtual void ShuffleDeck()
+        {
+
+        }
+
+        public abstract List<PlayingCard> DealCard();
+
+        public virtual PlayingCard RequestCard()
+        {
+
+        }
     }
 
     public class PlayingCard
