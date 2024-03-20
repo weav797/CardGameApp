@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Decks\BlackjackDeck.cs" />
+    <Compile Include="Models\Decks\Deck.cs" />
+    <Compile Include="Enums\CardSuit.cs" />
+    <Compile Include="Enums\CardValue.cs" />
+    <Compile Include="Models\PlayingCardModel.cs" />
+    <Compile Include="Models\Decks\PokerDeck.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
