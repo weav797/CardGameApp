@@ -15,21 +15,45 @@ namespace CardGame
 
     public abstract class Deck
     {
+        protected List<PlayingCard> fullDeck = new List<PlayingCard>();
+        protected List<PlayingCard> drawPile = new List<PlayingCard>();
+        protected List<PlayingCard> discardPile = new List<PlayingCard>();
+
         public void CreateDeck()
         {
-
+            fullDeck.Clear();
+            
+            for (int suit = 0; suit < 4; suit++)
+            {
+                for (int val = 0; val < 13; val++)
+                {
+                    fullDeck.Add(new PlayingCard { Suit = (CardSuit)suit, Value = (CardValue)val });
+                }
+            }
         }
 
         public virtual void ShuffleDeck()
         {
-
+            var rnd = new Random();
+            drawPile = fullDeck.OrderBy(x => rnd.Next()).ToList();
+            // reference notion documentation for full explanation
         }
 
-        public abstract List<PlayingCard> DealCard();
+        public abstract List<PlayingCard> DealCards();
 
         public virtual PlayingCard RequestCard()
         {
+            PlayingCard output = drawPile.Take(1).First();
+            drawPile.Remove(output);
+            return output;
+        }
+    }
 
+    public class PokerDeck : Deck
+    {
+        public override List<PlayingCard> DealCards()
+        {
+            throw new NotImplementedException();
         }
     }
 
