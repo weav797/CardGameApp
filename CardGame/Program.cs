@@ -34,20 +34,26 @@ namespace CardGame
 
         public virtual void ShuffleDeck()
         {
-            /*
-             * Found this solution on Stack Overflow.
-             * Testing this solution in dev to see if it works.
-             */
-            
-            // var rand = new Random();
-            // var randomList = imagesEasy.OrderBy(x => rand.Next()).ToList();
+            var rnd = new Random();
+            drawPile = fullDeck.OrderBy(x => rnd.Next()).ToList();
+            // reference notion documentation for full explanation
         }
 
-        public abstract List<PlayingCard> DealCard();
+        public abstract List<PlayingCard> DealCards();
 
         public virtual PlayingCard RequestCard()
         {
+            PlayingCard output = drawPile.Take(1).First();
+            drawPile.Remove(output);
+            return output;
+        }
+    }
 
+    public class PokerDeck : Deck
+    {
+        public override List<PlayingCard> DealCards()
+        {
+            throw new NotImplementedException();
         }
     }
 
