@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Decks\GinRummyDeck.cs" />
     <Compile Include="Models\Decks\BlackjackDeck.cs" />
     <Compile Include="Models\Decks\Deck.cs" />
     <Compile Include="Enums\CardSuit.cs" />
